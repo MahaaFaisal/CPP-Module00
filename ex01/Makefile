@@ -1,13 +1,14 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = 
+NAME = phoneBook
+SRC = Contact.cpp PhoneBook.cpp main.cpp
 
 all: $(NAME)
 
-$(NAME):
-	$(CPP) $(CPPFLAGS) 
+$(NAME): $(SRC)
+	$(CPP) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
-	rm -rf
+	rm -rf phonebook
 
 re: clean all

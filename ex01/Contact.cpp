@@ -1,0 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/18 10:41:32 by mafaisal          #+#    #+#             */
+/*   Updated: 2024/08/18 15:24:19 by mafaisal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Contact.hpp"
+
+// === Constructor and Destructor ===
+Contact::Contact ()
+{
+	// std::cout << "Contact constructor called\n";
+}
+
+Contact::~Contact()
+{
+	// std::cout << "Contact destructor called\n";
+
+}
+
+// ======== Setters ========
+int		Contact::setFirstName(std::string firstName)
+{
+	this->firstName = firstName;
+	return (0);
+}
+
+int		Contact::setLastName(std::string lastName)
+{
+	this->lastName = lastName;
+	return (0);
+}
+
+int		Contact::setNickName(std::string nickName)
+{
+	this->nickName = nickName;
+	return (0);
+}
+
+int		Contact::setPhoneNumber(std::string phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
+	return (0);
+}
+
+int		Contact::setDarkestSecret(std::string darkestSecret)
+{
+	this->darkestSecret = darkestSecret;
+	return (0);
+}
+
+// ======== Getters ========
+std::string	Contact::getFirstName()
+{
+	return (this->firstName);
+}
+
+std::string	Contact::getLastName()
+{
+	return (this->lastName);
+}
+
+std::string	Contact::getNickName()
+{
+	return (this->nickName);
+}
+
+void		Contact::displayContact()
+{
+	std::cout << this->firstName << std::endl;
+	std::cout << this->lastName << std::endl;
+	std::cout << this->nickName << std::endl;
+	std::cout << this->phoneNumber << std::endl;
+	std::cout << this->darkestSecret << std::endl;
+}
