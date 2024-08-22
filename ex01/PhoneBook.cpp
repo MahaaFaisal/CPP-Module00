@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 13:36:21 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/18 16:47:26 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:09:51 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,29 @@ int	PhoneBook::addContact()
 	std::string input;
 
 	std::cout << "\nFirst name: ";
-	std::cin >> input;
+	if (std::cin >> input)
+		return (1);
+		
 	book[current].setFirstName(input);
 
 	std::cout << "\n Last name: ";
-	std::cin >> input;
+	if (std::cin >> input)
+		return (1);
 	book[current].setLastName(input);
 
 	std::cout << "\nNickname: ";
-	std::cin >> input;
+	if (std::cin >> input)
+		return (1);
 	book[current].setNickName(input);
 
 	std::cout << "\nphone Number: ";
-	std::cin >> input;
+	if (std::cin >> input)
+		return (1);
 	book[current].setPhoneNumber(input);
 
 	std::cout << "\nDarkest Secret: ";
-	std::cin >> input;
+	if (std::cin >> input)
+		return (1);
 	book[current].setDarkestSecret(input);
 
 	if (current + 1 == 8)
@@ -62,13 +68,18 @@ int	PhoneBook::getIndex(int index)
 	return (-1); 
 }
 
-void	PhoneBook::displayIndexContact()
+int	PhoneBook::displayIndexContact()
 {
 	int index;
 
 	this->displayPhoneBook();
 	std::cout << "\nContact Index: ";
-	std::cin >> index;
+	if (std::cin >> index)
+	{
+		std::cout << "Nothing was entered\n";
+		return ;
+	}
+		return (1);
 
 	
 	int	contactIndex = getIndex(index);

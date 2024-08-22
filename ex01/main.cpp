@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 09:25:47 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/18 16:29:23 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:20:46 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(void)
 	std::cout << "EXIT: if you want to exit, type EXIT at the prompt\n";
 
 	std::cout << underlined << Bold << "\nWhat do you need? " << Normal;
-	std::cin >> command;
+	if (!(std::cin >> command))
+		return (0);
 
 	while (1)
 	{
@@ -44,7 +45,8 @@ int	main(void)
 			std::cout << "Not a valid command\n";
 		
 		std::cout << underlined << Bold << "\nWhat do you need? 1.ADD 2.SEARCH 3.EXIT " << Normal;
-		std::cin >> command;
+		if (!(std::cin >> command))
+			return (0); 
 	}
 	std::cout << "BYE\n";
 }
