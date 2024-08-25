@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:08:19 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/18 16:30:18 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/25 11:29:41 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-#include <iostream>
+# include "helpers.hpp"
+# include <iostream>
 
 class PhoneBook
 {
@@ -34,7 +35,7 @@ class PhoneBook
 		int		addContact();
 		int	getIndex(int index);
 		void	displayContact();
-		void	displayIndexContact();
+		int	displayIndexContact();
 		void	displayPhoneBook();
 
 		~PhoneBook(void);

@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 10:41:32 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/18 15:24:19 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:25:45 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ std::string	Contact::getNickName()
 
 void		Contact::displayContact()
 {
-	std::cout << this->firstName << std::endl;
-	std::cout << this->lastName << std::endl;
-	std::cout << this->nickName << std::endl;
-	std::cout << this->phoneNumber << std::endl;
-	std::cout << this->darkestSecret << std::endl;
+	std::cout << "Firstname     :" << this->firstName << std::endl;
+	std::cout << "Lastname      :" << this->lastName << std::endl;
+	std::cout << "Nickname      :"<< this->nickName << std::endl;
+	std::cout << "Phone Number  :" << this->phoneNumber << std::endl;
+	std::cout << "Darkest Secret:" << this->darkestSecret << std::endl;
 }

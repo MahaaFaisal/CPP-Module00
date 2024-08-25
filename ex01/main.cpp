@@ -6,18 +6,19 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 09:25:47 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/22 17:20:46 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/25 11:31:51 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+# include "helpers.hpp"
 #include <iostream>
 #include <string.h>
 
-std::string Bold = "\e[1m";
-std::string underlined = "\e[4m";
-std::string Normal = "\e[0m";
+const char *Bold = "\e[1m";
+const char *underlined = "\e[4m";
+const char *Normal = "\e[0m";
 
 int	main(void)
 {
@@ -29,24 +30,20 @@ int	main(void)
 	std::cout << "SEARCH: if you want to SEARCH a contact, type SEARCH at the prompt\n";
 	std::cout << "EXIT: if you want to exit, type EXIT at the prompt\n";
 
-	std::cout << underlined << Bold << "\nWhat do you need? " << Normal;
-	if (!(std::cin >> command))
-		return (0);
-
 	while (1)
 	{
+		std::cout << underlined << Bold << "\nWhat do you need? 1.ADD 2.SEARCH 3.EXIT " << Normal;
+		std::getline(std::cin, command);
+		if (std::cin.eof())
+			exit(0);
 		if (!command.compare("ADD"))
 			myBook.addContact();
 		else if (!command.compare("SEARCH"))
 			myBook.displayIndexContact();
 		else if (!command.compare("EXIT"))
-			break;
+			break ;
 		else
 			std::cout << "Not a valid command\n";
-		
-		std::cout << underlined << Bold << "\nWhat do you need? 1.ADD 2.SEARCH 3.EXIT " << Normal;
-		if (!(std::cin >> command))
-			return (0); 
 	}
 	std::cout << "BYE\n";
 }

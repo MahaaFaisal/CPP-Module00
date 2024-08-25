@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 13:36:21 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/22 18:09:51 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:45:08 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,41 @@ PhoneBook::~PhoneBook()
 int	PhoneBook::addContact()
 {	
 	std::string input;
+	Contact	temp;
 
 	std::cout << "\nFirst name: ";
-	if (std::cin >> input)
+	input = getUserInput();
+	if (input.empty())
 		return (1);
-		
-	book[current].setFirstName(input);
+	temp.setFirstName(input);
 
 	std::cout << "\n Last name: ";
-	if (std::cin >> input)
+	input = getUserInput();
+	if (input.empty())
 		return (1);
-	book[current].setLastName(input);
+	temp.setLastName(input);
 
 	std::cout << "\nNickname: ";
-	if (std::cin >> input)
+	input = getUserInput();
+	if (input.empty())
 		return (1);
-	book[current].setNickName(input);
+	temp.setNickName(input);
 
 	std::cout << "\nphone Number: ";
-	if (std::cin >> input)
+	input = getUserInput();
+	if (input.empty())
 		return (1);
-	book[current].setPhoneNumber(input);
+	temp.setPhoneNumber(input);
 
 	std::cout << "\nDarkest Secret: ";
-	if (std::cin >> input)
+	input = getUserInput();
+	if (input.empty())
 		return (1);
-	book[current].setDarkestSecret(input);
+	temp.setDarkestSecret(input);
 
+	book[current] = temp;
 	if (current + 1 == 8)
-		this->isFull = 1;
+		isFull = 1;
 	current = (current + 1) % 8;
 	return (0);
 }
@@ -70,39 +76,49 @@ int	PhoneBook::getIndex(int index)
 
 int	PhoneBook::displayIndexContact()
 {
-	int index;
+	char indexChar;
+	int	index;
 
-	this->displayPhoneBook();
+	displayPhoneBook();
 	std::cout << "\nContact Index: ";
-	if (std::cin >> index)
-	{
-		std::cout << "Nothing was entered\n";
-		return ;
-	}
-		return (1);
-
-	
-	int	contactIndex = getIndex(index);
+	if (!(std::cin >> indexChar) || indexChar == '\n')
+			exit (0);
+	index = indexChar - 48;
+	int	contactIndex = getIndex(index - 1);
 	if (contactIndex < 0)
 	{
 		std::cout << "Contact does not exist\n";
-		return ;
+		return (1);
 	}
-	book[index].displayContact();
+	book[index - 1].displayContact();
+	return (0);
 }
 
 void	PhoneBook::displayPhoneBook()
 {
 	int	last;
+	std::string str;
 
 	if (isFull)
 		last = 8;
 	else
 		last = current;
-	std::cout << "----------------------------------------------------------------\n";
-	std::cout << "|   index   | firstname | lastname  | nickaname |\n";
+	std::cout << "┌-----------------------------------------┐\n";
+	std::cout << "|index| firstname | lastname  | nickaname |\n";
+	std::cout << "+-----------------------------------------+\n";
 	for (int i = 0; i < last; i++)
 	{
-		std::cout << "|    " << i << "    |    " << book[i].getFirstName() << "    |    " << book[i].getLastName() << "    |    " << book[i].getNickName() << std::endl;
+		//cout temp[10] with values copied instead of cout the whole thing
+		std::cout << "|  ";
+		std::cout << i + 1;
+		std::cout << "  | ";
+		std::cout << resizedField(book[i].getFirstName());
+		std::cout << "| ";
+		std::cout << resizedField(book[i].getLastName());
+		std::cout << "| ";
+		std::cout << resizedField(book[i].getNickName());
+		std::cout << "| ";
+		std::cout << std::endl;
 	}
+	std::cout << "└-----------------------------------------┘\n";
 }

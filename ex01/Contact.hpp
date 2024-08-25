@@ -6,12 +6,13 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 09:48:12 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/18 15:19:31 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/25 11:25:39 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
 #include <iostream>
 
 class Contact
