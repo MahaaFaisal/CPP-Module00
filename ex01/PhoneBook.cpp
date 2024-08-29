@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 13:36:21 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/08/25 15:45:08 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/08/29 07:46:17 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	PhoneBook::addContact()
 
 int	PhoneBook::getIndex(int index)
 {
-	if (current > index || isFull)
+	if (current > index || (index <= 8 && isFull))
 		return (index);
 	return (-1); 
 }
